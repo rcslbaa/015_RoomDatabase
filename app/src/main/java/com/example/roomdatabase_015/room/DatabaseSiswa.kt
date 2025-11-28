@@ -9,3 +9,7 @@ import androidx.room.RoomDatabase
 abstract class DatabaseSiswa : RoomDatabase() {
     abstract fun siswaDao()  : SiswaDao
 
+    companion object {
+        @Volatile
+        private var Instance: DatabaseSiswa? = null
+
