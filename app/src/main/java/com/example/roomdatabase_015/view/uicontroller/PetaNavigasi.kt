@@ -42,3 +42,10 @@ fun HostNavigasi(
             arguments = listOf(navArgument(name=itemIdArg) {
                 type = NavType.IntType
             })
+        ){
+            DetailSiswaScreen(
+                //navigateToEditItem = {navController.navigater("${DestinasiEditSiswa.route}/$it)},
+                navigateBack = { navController.navigateUp() })
+        }
+    }
+}
