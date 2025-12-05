@@ -14,8 +14,10 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.roomdatabase_015.view.DetailSiswaScreen
+import com.example.roomdatabase_015.view.EditSiswaScreen
 import com.example.roomdatabase_015.view.route.DestinasiDetailSiswa
 import com.example.roomdatabase_015.view.route.DestinasiDetailSiswa.itemIdArg
+import com.example.roomdatabase_015.view.route.DestinasiEditSiswa
 
 @Composable
 fun SiswaApp(navController: NavHostController= rememberNavController(), modifier: Modifier) {
@@ -49,6 +51,14 @@ fun HostNavigasi(
             DetailSiswaScreen(
                 //navigateToEditItem = {navController.navigater("${DestinasiEditSiswa.route}/$it)},
                 navigateBack = { navController.navigateUp() })
+        }
+        composable(route= DestinasiEditSiswa.routeWithArgs,
+            arguments = listOf(navArgument(DestinasiEditSiswa.itemIdArg){
+                type= NavType.IntType })){
+            EditSiswaScreen(
+                navigateBack = {navController.popBackStack()},
+                onNavigateUp = {navController.navigateUp()}
+            )
         }
     }
 }
