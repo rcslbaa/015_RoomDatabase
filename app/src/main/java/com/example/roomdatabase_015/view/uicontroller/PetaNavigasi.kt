@@ -39,4 +39,6 @@ fun HostNavigasi(
         }
         //edit 2: tambahkan 2 composable route
         composable(route = DestinasiDetailSiswa.routeWithArgs,
-
+            arguments = listOf(navArgument(name=itemIdArg) {
+                type = NavType.IntType
+            })
